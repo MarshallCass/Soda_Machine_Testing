@@ -8,14 +8,17 @@ class TestSodaMachine(unittest.TestCase):
     def setUp(self):
         self.soda_machine = SodaMachine()
 
+# fill_register test
     def test_register_len(self):
         """Instantiate Soda Machine, test that its register list has len of 88"""
         self.assertEqual(len(self.soda_machine.register), 88)
 
+# fill_inventory test
     def test_inventory_len(self):
         """Instantiate Soda Machine, test that its inventory list has len of 30"""
         self.assertEqual(len(self.soda_machine.inventory), 30)
 
+# register_has_coing 5 tests
     def test_get_quarter_from_register(self):
         """Test that a quarter can be returned from the register"""
         returned_coin = self.soda_machine.get_coin_from_register('Quarter')
@@ -41,7 +44,7 @@ class TestSodaMachine(unittest.TestCase):
         returned_coin = self.soda_machine.get_coin_from_register('Cool Runnings')
         self.assertIsNone(returned_coin, None)
 
-    
+# register_has_coin 5 tests  
     def test_register_has_quarter(self):
         """Test that a quarter can be returned from the register"""
         has_quarter = self.soda_machine.register_has_coin('Quarter')
@@ -67,11 +70,21 @@ class TestSodaMachine(unittest.TestCase):
         has_pennies = self.soda_machine.register_has_coin('Pennies')
         self.assertFalse(has_pennies)  
 
+# determine_change_value 3 tests
+    def test_refund_change_overpay(self):
+        """Test that when you overpay you get the correct change"""
+        change_returned = self.soda_machine.determine_change_value(.75, .60)
+        self.assertEqual(change_returned, .15)
 
-    def test_calculate_coin_value(self):
-        """ Ins"""
-        has_pennies = self.soda_machine.register_has_coin('Pennies')
-        self.assertFalse(has_pennies)  
+    def test_refund_change_underpay(self):
+        """Test that when you underpay you get a negative return"""
+        change_returned = self.soda_machine.determine_change_value(.50, .60)
+        self.assertEqual(change_returned, -.10)
+
+    def test_refund_correct_payment(self):
+        """Test that when you give correct change there is no refund"""
+        change_returned = self.soda_machine.determine_change_value(.60, .60)
+        self.assertEqual(change_returned, 0)
 
 
 if __name__ == '__main__':

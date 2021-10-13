@@ -42,5 +42,11 @@ class TestSodaMachine(unittest.TestCase):
         returned_coin = self.soda_machine.get_coin_from_register('Cool Runnings')
         self.assertIsNone(returned_coin, None)
 
+    def test_quarter_is_in_register(self):
+        """Test to see if quarter can will return True"""
+        coin_accounted_for = self.soda_machine.register_has_coin('Quarter')
+        self.assertTrue(coin_accounted_for)
+
+
 if __name__ == '__main__':
     unittest.main()

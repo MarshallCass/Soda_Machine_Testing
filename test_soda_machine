@@ -42,11 +42,31 @@ class TestSodaMachine(unittest.TestCase):
         returned_coin = self.soda_machine.get_coin_from_register('Cool Runnings')
         self.assertIsNone(returned_coin, None)
 
-    def test_quarter_is_in_register(self):
-        """Test to see if quarter can will return True"""
-        coin_accounted_for = self.soda_machine.register_has_coin('Quarter')
-        self.assertTrue(coin_accounted_for)
+    
+    def test_register_has_quarter(self):
+        """Test that a quarter can be returned from the register"""
+        has_quarter = self.soda_machine.register_has_coin('Quarter')
+        self.assertTrue(has_quarter)
 
+    def test_register_has_dime(self):
+        """Test that a dime can be returned from the register"""
+        has_dime = self.soda_machine.register_has_coin('Dime')
+        self.assertTrue(has_dime)
+
+    def test_register_has_nickel(self):
+        """Test that a nickel can be returned from the register"""
+        has_nickel = self.soda_machine.register_has_coin('Nickel')
+        self.assertTrue(has_nickel)
+
+    def test_register_has_penny(self):
+        """Test that a penny can be returned from the register"""
+        has_penny = self.soda_machine.register_has_coin('Penny')
+        self.assertTrue(has_penny)
+
+    def test_non_valid_coin_name(self):
+        """Pass in a non valid coin name to return false"""
+        has_pennies = self.soda_machine.register_has_coin('Pennies')
+        self.assertFalse(has_pennies)  
 
 if __name__ == '__main__':
     unittest.main()

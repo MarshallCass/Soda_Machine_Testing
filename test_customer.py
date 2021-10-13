@@ -46,5 +46,7 @@ class TestGetWalletCoin(unittest.TestCase):
         self.customer.add_coins_to_wallet([])
         self.assertEqual(len(self.customer.wallet.money), current_number_of_coins)
 
+        
+
 if __name__ == '__main__':
     unittest.main()

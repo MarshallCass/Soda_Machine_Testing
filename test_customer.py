@@ -33,5 +33,11 @@ class TestGetWalletCoin(unittest.TestCase):
         return_coin = self.customer.get_wallet_coin('Running')
         self.assertIsNone(return_coin, None)
 
+
+    def test_add_can_to_backpack(self, cola):
+        """Pass in a Cola object and check backpack purchased cans list """
+        return_backpack_len = self.backpack.purchased_cans.append(self.can.name(cola))
+        self.assertEqual(return_backpack_len, self.can.name(cola))
+
 if __name__ == '__main__':
     unittest.main()

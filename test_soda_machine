@@ -1,0 +1,24 @@
+from logging import RootLogger
+import unittest
+from soda_machine import SodaMachine
+
+class TestSodaMachine(unittest.TestCase):
+    """Tests for Customer's Soda Machine method"""
+
+    def setUp(self):
+        self.soda_machine = SodaMachine()
+
+
+    def test_register_len(self):
+        """Instantiate Soda Machine, test that its register list has len of 88"""
+        current_soda_machine_register = len(self.soda_machine.register)
+        self.assertEqual(len(self.soda_machine.register), 88)
+
+    def test_inventory_len(self):
+        """Instantiate Soda Machine, test that its inventory list has len of 30"""
+        current_soda_machine_inventory = len(self.soda_machine.inventory)
+        self.assertEqual(len(self.soda_machine.inventory), 30)
+
+
+if __name__ == '__main__':
+    unittest.main()

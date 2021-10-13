@@ -46,5 +46,23 @@ class TestGetWalletCoin(unittest.TestCase):
         self.customer.add_coins_to_wallet([])
         self.assertEqual(len(self.customer.wallet.money), current_number_of_coins)
 
+    def test_add_cola_can_to_backpack(self):
+        """Pass in a cola object and make sure the len of customers backpack coincides"""
+        current_number_of_cola_cans = len(self.customer.backpack.purchased_cans)
+        self.customer.add_can_to_backpack('Cola')
+        self.assertEqual(len(self.customer.backpack.purchased_cans), current_number_of_cola_cans + 1)
+
+    def test_add_root_beer_can_to_backpack(self):
+        """Pass in a Root Beer object and make sure the len of customers backpack coincides"""
+        current_number_of_root_beer_cans = len(self.customer.backpack.purchased_cans)
+        self.customer.add_can_to_backpack('Root Beer')
+        self.assertEqual(len(self.customer.backpack.purchased_cans), current_number_of_root_beer_cans + 1)
+
+    def test_add_orange_soda_can_to_backpack(self):
+        """Pass in a Orange Soda object and make sure the len of customers backpack coincides"""
+        current_number_of_orange_soda_cans = len(self.customer.backpack.purchased_cans)
+        self.customer.add_can_to_backpack('Orange Soda')
+        self.assertEqual(len(self.customer.backpack.purchased_cans), current_number_of_orange_soda_cans + 1)
+
 if __name__ == '__main__':
     unittest.main()

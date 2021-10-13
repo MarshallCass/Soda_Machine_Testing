@@ -11,14 +11,36 @@ class TestSodaMachine(unittest.TestCase):
 
     def test_register_len(self):
         """Instantiate Soda Machine, test that its register list has len of 88"""
-        current_soda_machine_register = len(self.soda_machine.register)
         self.assertEqual(len(self.soda_machine.register), 88)
 
     def test_inventory_len(self):
         """Instantiate Soda Machine, test that its inventory list has len of 30"""
-        current_soda_machine_inventory = len(self.soda_machine.inventory)
         self.assertEqual(len(self.soda_machine.inventory), 30)
 
+    def test_get_quarter_from_register(self):
+        """Test that a quarter can be returned from the register"""
+        returned_coin = self.soda_machine.get_coin_from_register('Quarter')
+        self.assertEqual(returned_coin.value, .25)
+
+    def test_get_dime_from_register(self):
+        """Test that a dime can be returned from the register"""
+        returned_coin = self.soda_machine.get_coin_from_register('Dime')
+        self.assertEqual(returned_coin.value, .10)
+
+    def test_get_nickel_from_register(self):
+        """Test that a nickel can be returned from the register"""
+        returned_coin = self.soda_machine.get_coin_from_register('Nickel')
+        self.assertEqual(returned_coin.value, .05)
+
+    def test_get_penny_from_register(self):
+        """Test that a penny can be returned from the register"""
+        returned_coin = self.soda_machine.get_coin_from_register('Penny')
+        self.assertEqual(returned_coin.value, .01)
+
+    def test_string_input_return_none(self):
+        """Pass in a 'String' and return none"""
+        returned_coin = self.soda_machine.get_coin_from_register('Cool Runnings')
+        self.assertIsNone(returned_coin, None)
 
 if __name__ == '__main__':
     unittest.main()

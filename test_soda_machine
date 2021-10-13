@@ -8,7 +8,6 @@ class TestSodaMachine(unittest.TestCase):
     def setUp(self):
         self.soda_machine = SodaMachine()
 
-
     def test_register_len(self):
         """Instantiate Soda Machine, test that its register list has len of 88"""
         self.assertEqual(len(self.soda_machine.register), 88)
@@ -67,6 +66,13 @@ class TestSodaMachine(unittest.TestCase):
         """Pass in a non valid coin name to return false"""
         has_pennies = self.soda_machine.register_has_coin('Pennies')
         self.assertFalse(has_pennies)  
+
+
+    def test_calculate_coin_value(self):
+        """ Ins"""
+        has_pennies = self.soda_machine.register_has_coin('Pennies')
+        self.assertFalse(has_pennies)  
+
 
 if __name__ == '__main__':
     unittest.main()

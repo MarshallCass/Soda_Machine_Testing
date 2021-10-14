@@ -1,6 +1,8 @@
 from logging import RootLogger
 import unittest
 from soda_machine import SodaMachine
+from coins import Coin, Quarter, Dime, Nickel, Penny
+
 
 class TestSodaMachine(unittest.TestCase):
     """Tests for Customer's Soda Machine method"""
@@ -85,6 +87,13 @@ class TestSodaMachine(unittest.TestCase):
         """Test that when you give correct change there is no refund"""
         change_returned = self.soda_machine.determine_change_value(.60, .60)
         self.assertEqual(change_returned, 0)
+
+
+    def test_git_inventory_soda(self):
+        """Pass in each soda name and insure return of same name"""
+        soda_names_match = self.soda_machine.register_has_coin('Quarter')
+#       self.assertTrue(has_quarter)
+
 
 
 if __name__ == '__main__':

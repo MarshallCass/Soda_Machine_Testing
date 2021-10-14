@@ -127,6 +127,12 @@ class TestSodaMachine(unittest.TestCase):
         mtdew_check = self.soda_machine.get_inventory_soda('Mountain Dew')
         self.assertEqual(mtdew_check, None)    
 
+    def test_return_inventory(self):
+        """Instanciate a can and pass it into the method insure inventory increases to 31"""
+        can = 'Cola'
+        self.soda_machine.inventory.append(can)
+        self.assertEqual(len(self.soda_machine.inventory), 31)
+
     def test_deposit_coins_into_register(self):
         """Insert 4 different coins and make sure it reflects in the len of self.register"""
         dime = Dime()

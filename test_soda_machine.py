@@ -2,6 +2,7 @@ from logging import RootLogger
 import unittest
 from coins import Coin, Dime, Nickel, Penny, Quarter
 from soda_machine import SodaMachine
+from cans import Can, Cola, OrangeSoda, RootBeer
 
 class TestSodaMachine(unittest.TestCase):
     """Tests for Customer's Soda Machine method"""
@@ -103,6 +104,10 @@ class TestSodaMachine(unittest.TestCase):
         new_coin_list = []
         correct_change = self.soda_machine.calculate_coin_value(new_coin_list)
         self.assertEqual(correct_change, 0)
+
+    
+
+
 
 if __name__ == '__main__':
     unittest.main()

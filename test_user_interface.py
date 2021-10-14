@@ -54,11 +54,45 @@ class TestDisplayPaymentValue(unittest.TestCase):
         correct_change = user_interface.display_payment_value(new_coin_list)
         self.assertEqual(correct_change, .41)
 
-    def test_display_payment_value(self):
+    def test_display_payment_value_one(self):
         """"Pass 0 coin types in a list and ensure they return a value of 0"""
         new_coin_list = []
         correct_change = user_interface.display_payment_value(new_coin_list)
         self.assertEqual(correct_change, 0)
+
+class TestValidateCoinSeletction(unittest.TestCase):
+    """Pass in each int 1-5, ensure the correct tuple is returned"""
+    def test_1_validate_coin_selection(self):
+        """"Pass in 1, ensure the correct tuple is returned"""
+        number_one = user_interface.validate_coin_selection(1)
+        self.assertEqual(number_one, (True, 'Quarter'))
+        
+    def test_2_validate_coin_selection(self):
+        """"Pass in 2, ensure the correct tuple is returned"""
+        number_two = user_interface.validate_coin_selection(2)
+        self.assertEqual(number_two, (True, 'Dime'))
+    
+    def test_3_validate_coin_selection(self):
+        """"Pass in 3, ensure the correct tuple is returned"""
+        number_three = user_interface.validate_coin_selection(3)
+        self.assertEqual(number_three, (True, 'Nickel'))
+    
+    def test_4_validate_coin_selection(self):
+        """"Pass in 4, ensure the correct tuple is returned"""
+        number_four = user_interface.validate_coin_selection(4)
+        self.assertEqual(number_four, (True, 'Penny'))
+
+    def test_5_validate_coin_selection(self):
+        """"Pass in 5, ensure the correct tuple is returned"""
+        number_five = user_interface.validate_coin_selection(5)
+        self.assertEqual(number_five, (True, 'Done'))
+
+    def test_6_validate_coin_selection(self):
+        """"Pass in 6, ensure the correct tuple is returned"""
+        number_six = user_interface.validate_coin_selection(6)
+        self.assertEqual(number_six, (False, None))
+
+
 
 if __name__ == '__main__':
     unittest.main()

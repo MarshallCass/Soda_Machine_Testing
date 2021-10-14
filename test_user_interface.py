@@ -2,6 +2,7 @@ import unittest
 import user_interface
 import os
 from cans import Can, Cola, OrangeSoda, RootBeer
+from coins import Coin, Quarter, Dime, Nickel, Penny
 
 class TestValidateMainMenu(unittest.TestCase):
     """Tests for Customer's User Interface Module"""
@@ -51,6 +52,23 @@ class TestGetUniqueCanNames(unittest.TestCase):
         self.soda_list = [cola, cola, orangesoda, orangesoda, rootbeer, rootbeer]
         unique_cans = user_interface.get_unique_can_names(self.soda_list)
         self.assertEqual(len(unique_cans), 3)
+class TestDisplayPaymentValue(unittest.TestCase):
+
+    def test_display_payment_value(self):
+        """"Pass 4 coin types in a list and ensure they return a value of .41"""
+        dime = Dime()
+        nickel = Nickel()
+        quarter = Quarter()
+        penny = Penny()
+        new_coin_list = [dime, nickel, quarter, penny]
+        correct_change = user_interface.display_payment_value(new_coin_list)
+        self.assertEqual(correct_change, .41)
+
+    def test_display_payment_value(self):
+        """"Pass 0 coin types in a list and ensure they return a value of 0"""
+        new_coin_list = []
+        correct_change = user_interface.display_payment_value(new_coin_list)
+        self.assertEqual(correct_change, 0)
 
 if __name__ == '__main__':
     unittest.main()

@@ -6,7 +6,7 @@ from soda_machine import SodaMachine
 from coins import Coin, Quarter, Dime, Nickel, Penny
 
 
-class TestSodaMachine(unittest.TestCase):
+class TestSodaMachine1(unittest.TestCase):
     """Tests for Customer's Soda Machine method"""
 
     def setUp(self):
@@ -17,7 +17,7 @@ class TestSodaMachine(unittest.TestCase):
         """Instantiate Soda Machine, test that its register list has len of 88"""
         self.assertEqual(len(self.soda_machine.register), 88)
 
-class TestSodaMachine(unittest.TestCase):
+class TestSodaMachine2(unittest.TestCase):
     """Tests for Customer's Soda Machine method"""
 
     def setUp(self):
@@ -28,7 +28,7 @@ class TestSodaMachine(unittest.TestCase):
         """Instantiate Soda Machine, test that its inventory list has len of 30"""
         self.assertEqual(len(self.soda_machine.inventory), 30)
 
-class TestSodaMachine(unittest.TestCase):
+class TestSodaMachine3(unittest.TestCase):
     """Tests for Customer's Soda Machine method"""
 
     def setUp(self):
@@ -60,7 +60,7 @@ class TestSodaMachine(unittest.TestCase):
         returned_coin = self.soda_machine.get_coin_from_register('Cool Runnings')
         self.assertIsNone(returned_coin, None)
 
-class TestSodaMachine(unittest.TestCase):
+class TestSodaMachine4(unittest.TestCase):
     """Tests for Customer's Soda Machine method"""
 
     def setUp(self):
@@ -92,7 +92,7 @@ class TestSodaMachine(unittest.TestCase):
         has_pennies = self.soda_machine.register_has_coin('Pennies')
         self.assertFalse(has_pennies)  
 
-class TestSodaMachine(unittest.TestCase):
+class TestSodaMachine5(unittest.TestCase):
     """Tests for Customer's Soda Machine method"""
 
     def setUp(self):
@@ -114,7 +114,7 @@ class TestSodaMachine(unittest.TestCase):
         change_returned = self.soda_machine.determine_change_value(.60, .60)
         self.assertEqual(change_returned, 0)
 
-class TestSodaMachine(unittest.TestCase):
+class TestSodaMachine6(unittest.TestCase):
     """Tests for Customer's Soda Machine method"""
 
     def setUp(self):
@@ -137,7 +137,7 @@ class TestSodaMachine(unittest.TestCase):
         correct_change = self.soda_machine.calculate_coin_value(new_coin_list)
         self.assertEqual(correct_change, 0)
 
-class TestSodaMachine(unittest.TestCase):
+class TestSodaMachine7(unittest.TestCase):
     """Tests for Customer's Soda Machine method"""
 
     def setUp(self):
@@ -164,7 +164,7 @@ class TestSodaMachine(unittest.TestCase):
         mtdew_check = self.soda_machine.get_inventory_soda('Mountain Dew')
         self.assertEqual(mtdew_check, None)    
 
-class TestSodaMachine(unittest.TestCase):
+class TestSodaMachine8(unittest.TestCase):
     """Tests for Customer's Soda Machine method"""
 
     def setUp(self):
@@ -177,7 +177,7 @@ class TestSodaMachine(unittest.TestCase):
         self.soda_machine.inventory.append(can)
         self.assertEqual(len(self.soda_machine.inventory), 31)
 
-class TestSodaMachine(unittest.TestCase):
+class TestSodaMachine9(unittest.TestCase):
     """Tests for Customer's Soda Machine method"""
 
     def setUp(self):

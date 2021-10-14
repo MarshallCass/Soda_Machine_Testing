@@ -3,7 +3,7 @@ import unittest
 from coins import Coin
 from customer import Customer
 
-class TestGetWalletCoin(unittest.TestCase):
+class TestGetWalletCoin1(unittest.TestCase):
     """Tests for Customer's get_wallet_coin method"""
 
     def setUp(self):
@@ -34,6 +34,13 @@ class TestGetWalletCoin(unittest.TestCase):
         return_coin = self.customer.get_wallet_coin('Running')
         self.assertIsNone(return_coin, None)
 
+
+class TestGetWalletCoin2(unittest.TestCase):
+    """Tests for Customer's get_wallet_coin method"""
+
+    def setUp(self):
+        self.customer = Customer()
+
     def test_3_coins_add_to_wallet(self):
         """Pass in a list of 3 coins, len of customers wallets money list coincides"""
         current_number_of_coins = len(self.customer.wallet.money)
@@ -45,6 +52,13 @@ class TestGetWalletCoin(unittest.TestCase):
         current_number_of_coins = len(self.customer.wallet.money)
         self.customer.add_coins_to_wallet([])
         self.assertEqual(len(self.customer.wallet.money), current_number_of_coins)
+
+
+class TestGetWalletCoin3(unittest.TestCase):
+    """Tests for Customer's get_wallet_coin method"""
+
+    def setUp(self):
+        self.customer = Customer()
 
     def test_add_cola_can_to_backpack(self):
         """Pass in a cola object and make sure the len of customers backpack coincides"""

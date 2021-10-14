@@ -3,7 +3,7 @@ import unittest
 from cans import Can, Cola, OrangeSoda, RootBeer
 from coins import Coin, Dime, Nickel, Penny, Quarter
 from soda_machine import SodaMachine
-from coins import Coin, Quarter, Dime, Nickel, Penny
+
 
 
 class TestSodaMachine1(unittest.TestCase):

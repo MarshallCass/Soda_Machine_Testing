@@ -1,6 +1,7 @@
 import unittest
 import user_interface
 import os
+from cans import Can, Cola, OrangeSoda, RootBeer
 from coins import Coin, Quarter, Dime, Nickel, Penny
 
 class TestValidateMainMenu(unittest.TestCase):
@@ -41,6 +42,21 @@ class TestTryParseInt(unittest.TestCase):
         """Test to see if entering anything orther than a number string will return 0"""
         parse_check = user_interface.try_parse_int("hello")
         self.assertEqual(parse_check, 0)
+
+class TestGetUniqueCanNames(unittest.TestCase):
+    """"Instantiate 6 cans or 2 types and append then to a list return list only 3 names"""
+    def test_get_unique_can_names(self):
+        cola = Cola()
+        orangesoda = OrangeSoda()
+        rootbeer = RootBeer()
+        self.soda_list = [cola, cola, orangesoda, orangesoda, rootbeer, rootbeer]
+        unique_cans = user_interface.get_unique_can_names(self.soda_list)
+        self.assertEqual(len(unique_cans), 3)
+
+    def test_get_unique_can_names_one(self):
+        self.empty_list = []
+        unique_cans = user_interface.get_unique_can_names(self.empty_list)
+        self.assertEqual(len(unique_cans), 0)
 
 class TestDisplayPaymentValue(unittest.TestCase):
 

@@ -1,6 +1,7 @@
 import unittest
 import user_interface
 import os
+from coins import Coin, Quarter, Dime, Nickel, Penny
 
 class TestValidateMainMenu(unittest.TestCase):
     """Tests for Customer's User Interface Module"""
@@ -40,6 +41,24 @@ class TestTryParseInt(unittest.TestCase):
         """Test to see if entering anything orther than a number string will return 0"""
         parse_check = user_interface.try_parse_int("hello")
         self.assertEqual(parse_check, 0)
+
+class TestDisplayPaymentValue(unittest.TestCase):
+
+    def test_display_payment_value(self):
+        """"Pass 4 coin types in a list and ensure they return a value of .41"""
+        dime = Dime()
+        nickel = Nickel()
+        quarter = Quarter()
+        penny = Penny()
+        new_coin_list = [dime, nickel, quarter, penny]
+        correct_change = user_interface.display_payment_value(new_coin_list)
+        self.assertEqual(correct_change, .41)
+
+    def test_display_payment_value(self):
+        """"Pass 0 coin types in a list and ensure they return a value of 0"""
+        new_coin_list = []
+        correct_change = user_interface.display_payment_value(new_coin_list)
+        self.assertEqual(correct_change, 0)
 
 if __name__ == '__main__':
     unittest.main()

@@ -1,5 +1,6 @@
 from logging import RootLogger
 import unittest
+from coins import Coin, Dime, Nickel, Penny, Quarter
 from soda_machine import SodaMachine
 from coins import Coin, Quarter, Dime, Nickel, Penny
 
@@ -88,6 +89,22 @@ class TestSodaMachine(unittest.TestCase):
         change_returned = self.soda_machine.determine_change_value(.60, .60)
         self.assertEqual(change_returned, 0)
 
+# calculate_coin_value 2 tests
+    def test_calulate_coin_value_with_list(self):
+        """Test that when you put in a list of coins, it calculates the right value"""
+        dime = Dime()
+        nickel = Nickel()
+        quarter = Quarter()
+        penny = Penny()
+        new_coin_list = [dime, nickel, quarter, penny]
+        correct_change = self.soda_machine.calculate_coin_value(new_coin_list)
+        self.assertEqual(correct_change, .41)
+
+    def test_calulate_coin_value_without_list(self):
+        """Test that when you don't input a list, it calculates the right value"""
+        new_coin_list = []
+        correct_change = self.soda_machine.calculate_coin_value(new_coin_list)
+        self.assertEqual(correct_change, 0)
 
     def test_git_inventory_soda(self):
         """Pass in each soda name and insure return of same name"""

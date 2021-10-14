@@ -45,13 +45,19 @@ class TestTryParseInt(unittest.TestCase):
 
 class TestGetUniqueCanNames(unittest.TestCase):
     """"Instantiate 6 cans or 2 types and append then to a list return list only 3 names"""
-    def test_get_unique_can_Names(self):
+    def test_get_unique_can_names(self):
         cola = Cola()
         orangesoda = OrangeSoda()
         rootbeer = RootBeer()
         self.soda_list = [cola, cola, orangesoda, orangesoda, rootbeer, rootbeer]
         unique_cans = user_interface.get_unique_can_names(self.soda_list)
         self.assertEqual(len(unique_cans), 3)
+
+    def test_get_unique_can_names_one(self):
+        self.empty_list = []
+        unique_cans = user_interface.get_unique_can_names(self.empty_list)
+        self.assertEqual(len(unique_cans), 0)
+
 class TestDisplayPaymentValue(unittest.TestCase):
 
     def test_display_payment_value(self):
@@ -64,7 +70,7 @@ class TestDisplayPaymentValue(unittest.TestCase):
         correct_change = user_interface.display_payment_value(new_coin_list)
         self.assertEqual(correct_change, .41)
 
-    def test_display_payment_value(self):
+    def test_display_payment_value_one(self):
         """"Pass 0 coin types in a list and ensure they return a value of 0"""
         new_coin_list = []
         correct_change = user_interface.display_payment_value(new_coin_list)

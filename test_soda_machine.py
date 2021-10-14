@@ -1,5 +1,6 @@
 from logging import RootLogger
 import unittest
+from cans import Can, Cola, OrangeSoda, RootBeer
 from coins import Coin, Dime, Nickel, Penny, Quarter
 from soda_machine import SodaMachine
 from coins import Coin, Quarter, Dime, Nickel, Penny
@@ -106,12 +107,25 @@ class TestSodaMachine(unittest.TestCase):
         correct_change = self.soda_machine.calculate_coin_value(new_coin_list)
         self.assertEqual(correct_change, 0)
 
-    def test_git_inventory_soda(self):
-        """Pass in each soda name and insure return of same name"""
-        soda_names_match = self.soda_machine.register_has_coin('Quarter')
-#       self.assertTrue(has_quarter)
+    def test_get_inventory_cola(self):
+        """Pass in Cola soda name and insure return of same name"""
+        cola_check = self.soda_machine.get_inventory_soda('Cola')
+        self.assertEqual(cola_check.name, 'Cola')
 
+    def test_get_inventory_orangesoda(self):
+        """Pass in Orange Soda name and insure return of same name"""
+        orangesoda_check = self.soda_machine.get_inventory_soda('Orange Soda')
+        self.assertEqual(orangesoda_check.name, 'Orange Soda')
 
+    def test_get_inventory_rootbeer(self):
+        """Pass in Root Beer name and insure return of same name"""
+        rootbeer_check = self.soda_machine.get_inventory_soda('Root Beer')
+        self.assertEqual(rootbeer_check.name, 'Root Beer')
+
+    def test_get_inventory_mtdew(self):
+        """Pass in Mountain Dew name and insure return of same name"""
+        mtdew_check = self.soda_machine.get_inventory_soda('Mountain Dew')
+        self.assertEqual(mtdew_check, None)    
 
 if __name__ == '__main__':
     unittest.main()

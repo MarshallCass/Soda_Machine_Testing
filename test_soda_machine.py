@@ -127,5 +127,15 @@ class TestSodaMachine(unittest.TestCase):
         mtdew_check = self.soda_machine.get_inventory_soda('Mountain Dew')
         self.assertEqual(mtdew_check, None)    
 
+    def test_deposit_coins_into_register(self):
+        """Insert 4 different coins and make sure it reflects in the len of self.register"""
+        dime = Dime()
+        nickel = Nickel()
+        quarter = Quarter()
+        penny = Penny()
+        new_coin_list = [dime, nickel, quarter, penny]
+        self.soda_machine.deposit_coins_into_register(new_coin_list)
+        self.assertEqual(len(self.soda_machine.register), 92)
+
 if __name__ == '__main__':
     unittest.main()

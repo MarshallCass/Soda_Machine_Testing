@@ -1,9 +1,9 @@
 from logging import RootLogger
 import unittest
-from coins import Coin
+from coins import Coin, Dime, Nickel, Quarter
 from customer import Customer
 
-class TestGetWalletCoin1(unittest.TestCase):
+class TestGetWalletCoinReturnValue(unittest.TestCase):
     """Tests for Customer's get_wallet_coin method"""
 
     def setUp(self):
@@ -35,7 +35,7 @@ class TestGetWalletCoin1(unittest.TestCase):
         self.assertIsNone(return_coin, None)
 
 
-class TestGetWalletCoin2(unittest.TestCase):
+class TestGetWalletCoinAddToWallet(unittest.TestCase):
     """Tests for Customer's get_wallet_coin method"""
 
     def setUp(self):
@@ -44,7 +44,7 @@ class TestGetWalletCoin2(unittest.TestCase):
     def test_3_coins_add_to_wallet(self):
         """Pass in a list of 3 coins, len of customers wallets money list coincides"""
         current_number_of_coins = len(self.customer.wallet.money)
-        self.customer.add_coins_to_wallet(['Quarter', 'Nickel', 'Dime'])
+        self.customer.add_coins_to_wallet([Quarter, Nickel, Dime])
         self.assertEqual(len(self.customer.wallet.money), current_number_of_coins + 3)
 
     def test_0_coins_add_to_wallet(self):
@@ -54,7 +54,7 @@ class TestGetWalletCoin2(unittest.TestCase):
         self.assertEqual(len(self.customer.wallet.money), current_number_of_coins)
 
 
-class TestGetWalletCoin3(unittest.TestCase):
+class TestGetWalletCoinAddToBackpack(unittest.TestCase):
     """Tests for Customer's get_wallet_coin method"""
 
     def setUp(self):
